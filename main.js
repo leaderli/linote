@@ -1,18 +1,9 @@
 const { app, BrowserWindow,Notification  } = require('electron')
-const path = require('path')
-const fs = require('fs')
-
-console.log(fs.readdirSync('/'))
 
 
 const db = require('./js/database')
 
-winConfig = db.get('win').value()
 
-console.log(winConfig)
-winConfig.webPreferences = {
-  preload: path.join(__dirname, 'preload.js')
-}
 function showNotification (){
   const notification = {
     title: 'Basic Notification',
@@ -22,7 +13,7 @@ function showNotification (){
 }
 
 function createWindow() {
-  const win = new BrowserWindow(winConfig)
+  const win = new BrowserWindow(db.get('win').value())
   win.loadFile('index.html')
 }
 
@@ -34,7 +25,7 @@ app.whenReady().then(() => {
       createWindow()
     }
   })
-}).then(showNotification)
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
