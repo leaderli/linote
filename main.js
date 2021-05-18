@@ -14,7 +14,7 @@ function showNotification (){
 
 function createWindow() {
   const win = new BrowserWindow(db.get('win').value())
-  win.loadFile('index.html')
+  win.loadFile('index.html').then(res=>{})
 }
 
 app.whenReady().then(() => {
@@ -32,3 +32,4 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
+
