@@ -1,7 +1,7 @@
 const { app, BrowserWindow,Notification  } = require('electron')
 
 
-const db = require('./js/database')
+const db = require('./script/database')
 
 
 function showNotification (){
@@ -14,6 +14,7 @@ function showNotification (){
 
 function createWindow() {
   const win = new BrowserWindow(db.get('win').value())
+  console.log(db.get('win'))
   win.loadFile('index.html').then(res=>{})
 }
 

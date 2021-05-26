@@ -1,30 +1,18 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hello World!</title>
-  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>linote</title>
+  <link rel="stylesheet" href="./styles/main.css">
 </head>
-
-<body style="background: white;">
-  <h1>Hello World fuck!</h1>
-  <p>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
-  </p>
-  <input>
+<body class="index">
+<div class="container">
+  <ul id="titles"></ul>
+  <div id="content" contenteditable="true">
+  </div>
+</div>
+<script src="script/index.js"></script>
 </body>
-<script>
-  const myNotification = new Notification('Title', {
-    body: 'Notification from the Renderer process'
-  })
-
-  myNotification.onclick = () => {
-    console.log('Notification clicked')
-  }
-
-</script>
-
 </html>
